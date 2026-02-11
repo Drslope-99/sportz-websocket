@@ -76,4 +76,12 @@ matchesRouter.post("/", async (req, res) => {
       details: JSON.stringify(error),
     });
   }
+
+  if (res.app.locals.broadcastMatchCreated) {
+    try {
+      res.app.locals.broadcastMatchCreated(event);
+    } catch (error) {
+      console.error("WebSocket broadcast failed:", error);
+    }
+  }
 });

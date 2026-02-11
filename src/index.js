@@ -4,7 +4,7 @@ import { matchesRouter } from "./routes/matches.js";
 import { attachWebSocket } from "./ws/server.js";
 
 const app = express();
-const PORT = Number(process.env.PORT || 8000);
+const PORT = Number.parseInt(process.env.PORT || 8000);
 const HOST = process.env.HOST || "0.0.0.0";
 
 const server = http.createServer(app);
